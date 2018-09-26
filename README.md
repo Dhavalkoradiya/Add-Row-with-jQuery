@@ -1,5 +1,5 @@
 # Add Row with jQuery
 
-This HTML code with Add/Remove Multiple Row with Multiple Fields in jQuery.
+Add Remove input fields dynamically using jQuery bootstrap.
 
 ![AddRow](https://raw.githubusercontent.com/Dhavalkoradiya/Add-Row-with-jQuery/master/screenshot.png)
