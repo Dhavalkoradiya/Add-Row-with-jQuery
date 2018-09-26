@@ -1,0 +1,82 @@
+<!-- 
+/**
+ * Add Remove input fields dynamically using jQuery bootstrap
+ * @author Dhaval Koradiya, https://www.linkedin.com/in/dhavalkoradiya | dhavalk01@gmail.com
+ * @param  array $array The multi-dimensional array.
+ * @return array
+ */ 
+-->
+<html lang="en">
+<head>
+  <title>Add Remove input fields dynamically using jQuery bootstrap</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="card card-default">
+      <div class="card-header">Customer Client's Details </div>
+      <div class="card-body">
+        <div class="form-group control-group">
+          <div class="row">
+            <div class="col-md-3">Client Contact Person</div>
+            <div class="col-md-3">Email Id</div>
+            <div class="col-md-2">Phone No</div>
+            <div class="col-md-3">Designation</div>
+            <div class="col-md-1">Action</div>
+          </div>
+        </div>
+        <form action="" >
+          <div class="dohere">
+         <div class="form-group control-group after-add-more">
+          <div class="row">
+            <div class="col-md-3"><input type="text" name="client_contact_person[]" class="form-control" placeholder="Client Contact Person"></div>
+            <div class="col-md-3"><input type="text" name="client_email[]" class="form-control" placeholder="Email Id"></div>
+            <div class="col-md-2"><input type="text" name="client_phone_no[]" class="form-control" placeholder="Phone No"></div>
+            <div class="col-md-3"><input type="text" name="client_designation[]" class="form-control" placeholder="Designation"></div>
+            <div class="col-md-1"></div>
+          </div>
+        </div>
+        </div>
+      </form>
+    </div>
+    <div class="card-body">
+          <button class="btn btn-success add-more" type="button"> Add</button>
+        </div>
+  </div>
+</div>
+
+<!-- Copy Fields-These are the fields which we get through jquery and then add after the above input,-->
+      <div class="copy-fields d-none">
+        <div class="form-group control-group after-add-more">
+          <div class="row">
+            <div class="col-md-3"><input type="text" name="client_contact_person[]" class="form-control" placeholder="Client Contact Person"></div>
+            <div class="col-md-3"><input type="text" name="client_email[]" class="form-control" placeholder="Email Id"></div>
+            <div class="col-md-2"><input type="text" name="client_phone_no[]" class="form-control" placeholder="Phone No"></div>
+            <div class="col-md-3"><input type="text" name="client_designation[]" class="form-control" placeholder="Designation"></div>
+            <div class="col-md-1"><button class="btn btn-danger remove" type="button"><i class="fa fa-remove"></i> X</button></div>
+          </div>
+        </div>
+      </div>
+
+<script type="text/javascript">
+
+  $(document).ready(function() {
+
+	//here first get the contents of the div with name class copy-fields and add it to after "after-add-more" div class.
+  $(".add-more").click(function(){ 
+    var html = $(".copy-fields").html();
+    $(".dohere .after-add-more:last-child").after(html);
+  });
+  //here it will remove the current value of the remove button which has been pressed
+  $("body").on("click",".remove",function(){ 
+    $(this).parents(".control-group").remove();
+  });
+
+});
+
+</script>
+
+</body>
+</html>
